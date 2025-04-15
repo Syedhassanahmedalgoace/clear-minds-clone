@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth"; //yay firebase ka function hay jo loggin kay liyay use hota hay
-import { auth } from "../../firebase"; // yay firebase configuration ka object hay jahan pay authentication handle hoteee hay
-import { useNavigate } from "react-router-dom"; // 🔥 react-router se navigate hook import
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [error, setError] = useState(""); // agar login fail hojaye to error show hogaa
-  const [success, setSuccess] = useState(""); // jab login succesfull ho to message show karany kay liyay
-  const [email, setEmail] = useState(""); // yay user input ko store krny liyay hay
-  const [password, setPassword] = useState(""); // user input ko store krnay kay liyay hay
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const navigate = useNavigate(); // 👈 hook to redirect user after login
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,21 +18,21 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setSuccess("Login successful 🎉");
+      setSuccess("Logged in successfully 🎉");
 
-      // 👇 Redirect to dashboard after short delay
       setTimeout(() => {
         setSuccess("");
-        navigate("/dashboard");
-      }, 1500);
+        navigate("/dashboard"); // Change to your desired route
+      }, 2000);
     } catch (err) {
       console.error("Login error:", err);
-      setError(err.message || "Something went wrong");
+      setError("Invalid credentials or user not found 😢");
     }
   };
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 relative">
+      {/* Success Toast */}
       {success && (
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded shadow z-50 animate-fade-in-out">
           {success}
@@ -49,7 +49,7 @@ export default function Login() {
           className="w-full max-w-sm space-y-6 bg-white p-6 sm:p-8 rounded shadow"
         >
           <h2 className="text-2xl font-semibold text-center text-gray-800">
-            Sign In to Clearminds
+            Sign In
           </h2>
 
           {error && (
@@ -83,15 +83,9 @@ export default function Login() {
           </div>
 
           <div className="text-sm text-center text-teal-600">
-            <a href="/forgot-password" className="hover:underline">
-              Forgot Password?
+            <a href="/signup" className="hover:underline">
+              Don't have an account? Sign Up
             </a>
-            <div className="text-sm text-center text-teal-600">
-              <a href="/signup">
-                Don’t have an account?{" "}
-                <span className="hover:underline">Sign Up</span>
-              </a>
-            </div>
           </div>
         </form>
       </div>

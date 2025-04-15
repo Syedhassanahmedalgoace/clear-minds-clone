@@ -16,14 +16,19 @@ export default function Signup() {
     setError("");
     setSuccess("");
 
+    if (!email || !password) {
+      setError("Please enter both email and password");
+      return;
+    }
+
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setSuccess("Account created successfully 🎉");
 
       setTimeout(() => {
         setSuccess("");
-        navigate("/"); // Redirect to login page
-      }, 3000);
+        navigate("/"); // Change if you have a different login route
+      }, 2000);
     } catch (err) {
       console.error("Signup error:", err);
       setError(err.message || "Something went wrong");
