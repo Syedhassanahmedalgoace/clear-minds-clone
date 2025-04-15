@@ -16,17 +16,33 @@ export default function Login() {
     setError("");
     setSuccess("");
 
+    if (!email || !password) {
+      setError("Please enter both email and password.");
+      return;
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setSuccess("Logged in successfully 🎉");
 
       setTimeout(() => {
-        setSuccess("");
-        navigate("/dashboard"); // Change to your desired route
+        navigate("/dashboard"); // Redirect after login
       }, 2000);
     } catch (err) {
       console.error("Login error:", err);
-      setError("Invalid credentials or user not found 😢");
+      switch (err.code) {
+        case "auth/user-not-found":
+          setError("User not found. Please sign up first.");
+          break;
+        case "auth/wrong-password":
+          setError("Incorrect password. Please try again.");
+          break;
+        case "auth/invalid-email":
+          setError("Invalid email format.");
+          break;
+        default:
+          setError("Login failed. Please check your credentials.");
+      }
     }
   };
 
@@ -34,19 +50,19 @@ export default function Login() {
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 relative">
       {/* Success Toast */}
       {success && (
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded shadow z-50 animate-fade-in-out">
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded shadow z-50">
           {success}
         </div>
       )}
 
       <div className="w-full md:w-1/2 bg-teal-700 text-white flex items-center justify-center py-10">
-        <h1 className="text-3xl md:text-4xl font-bold">clearminds</h1>
+        <h1 className="text-4xl font-bold">clearminds</h1>
       </div>
 
       <div className="w-full md:w-1/2 flex items-center justify-center p-6 sm:p-10">
         <form
           onSubmit={handleLogin}
-          className="w-full max-w-sm space-y-6 bg-white p-6 sm:p-8 rounded shadow"
+          className="w-full max-w-sm space-y-6 bg-white p-8 rounded shadow"
         >
           <h2 className="text-2xl font-semibold text-center text-gray-800">
             Sign In
@@ -73,14 +89,12 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-full w-full sm:w-auto transition-all"
-            >
-              Sign In
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-full w-full transition-all"
+          >
+            Sign In
+          </button>
 
           <div className="text-sm text-center text-teal-600">
             <a href="/signup" className="hover:underline">
