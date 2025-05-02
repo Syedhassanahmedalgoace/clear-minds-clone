@@ -1,6 +1,7 @@
+// src/pages/ForgotPassword.jsx
 import React, { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../firebase"; 
+import { auth } from "../../firebase";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -13,7 +14,11 @@ export default function ForgotPassword() {
     setError("");
 
     try {
-      await sendPasswordResetEmail(auth, email);
+      await sendPasswordResetEmail(auth, email, {
+        // 👇 Optional: Send them to your custom page
+        url: "http://localhost:5173/reset-password", // or your production link
+        handleCodeInApp: true,
+      });
       setSuccess("Reset link sent to your email");
       setEmail("");
     } catch (err) {
