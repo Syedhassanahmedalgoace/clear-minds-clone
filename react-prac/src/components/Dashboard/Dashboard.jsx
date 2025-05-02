@@ -4,8 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { IoIosSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import StatsCard from "../CardComponent/CardComponent";
-import AreaInstalledChart from "../AreaInstalledChart/AreaInstalledChart";
-
+import AreaInstalledChart from "../../components/AreaInstalledChart/AreaInstalledChart";
 const Dashboard = () => {
   return (
     <div className="flex">
@@ -77,7 +76,9 @@ const Dashboard = () => {
           <StatsCard subtitle="Total Installed" title="8.7k" percentage="9%" />
           <StatsCard subtitle="Total Downloads" title="1.5k" percentage="4%" />
         </div>
-        <AreaInstalledChart />
+        <div>
+          <AreaInstalledChart />
+        </div>
       </div>
     </div>
   );

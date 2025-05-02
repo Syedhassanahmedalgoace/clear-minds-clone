@@ -10,7 +10,7 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase"; // Adjust the path if needed
+import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
@@ -19,7 +19,7 @@ const Sidebar = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      navigate("/login"); // Redirect to login after logout
+      navigate("/login");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -85,7 +85,8 @@ const Sidebar = () => {
 
 const NavItem = ({ icon, label, active = false, hasDropdown = false }) => (
   <div
-    className={`flex items-center justify-between px-3 py-2 rounded-md cursor-pointer ${
+    className={`flex items-center justify-between px-3 py-2 rounded-md cursor-pointer 
+    ${
       active ? "bg-teal-100 text-teal-700" : "text-gray-600 hover:bg-gray-100"
     }`}
   >
