@@ -47,7 +47,7 @@ export default function DownloadsDashboard() {
     <div className="flex flex-row p-6 bg-white rounded-lg shadow-md font-sans w-full">
       {/* Left Side - Donut Chart */}
       <div className="w-1/3 flex flex-col items-center mr-8 ">
-        <h2 className="text-lg font-medium text-gray-700 mb-1">
+        <h2 className="text-lg font-medium text-gray-700 mb-1 mr-60 fw-bold">
           Current Download
         </h2>
         <div className="relative">

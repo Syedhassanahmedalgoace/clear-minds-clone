@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Sidebar from "../SideBar/SideBar";
 import { CiSearch } from "react-icons/ci";
 import { IoIosSettings } from "react-icons/io";
@@ -22,6 +24,7 @@ const Dashboard = () => {
         <div className="p-6">
           <h1 className="text-2xl font-bold mb-4">Welcome to Dashboard</h1>
         </div>
+
         {/* Cards Section */}
         <div className="flex gap-6 px-6 py-6">
           {/* Welcome Card */}
