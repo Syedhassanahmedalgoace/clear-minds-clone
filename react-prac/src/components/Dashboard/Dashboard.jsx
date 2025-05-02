@@ -4,7 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { IoIosSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import StatsCard from "../CardComponent/CardComponent";
-import AreaInstalledChart from "../AreaInstalled/AreaInstalled";
+import AreaInstalledChart from "../AreaInstalledChart/AreaInstalledChart";
 
 const Dashboard = () => {
   return (
@@ -77,89 +77,7 @@ const Dashboard = () => {
           <StatsCard subtitle="Total Installed" title="8.7k" percentage="9%" />
           <StatsCard subtitle="Total Downloads" title="1.5k" percentage="4%" />
         </div>
-        <div className="max-w-sm w-full bg-white rounded-lg shadow-sm dark:bg-gray-800 p-4 md:p-6 ml-6">
-          <h5 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            Current Downloads{" "}
-          </h5>
-
-          {/* Donut Chart Placeholder */}
-          <div className="relative flex items-center justify-center h-52 w-52 mx-auto">
-            <svg viewBox="0 0 36 36" className="w-full h-full">
-              <path
-                className="text-blue-600"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeDasharray="60, 100"
-                d="M18 2.0845
-              a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path
-                className="text-cyan-400"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeDasharray="30, 100"
-                strokeDashoffset="-60"
-                d="M18 2.0845
-              a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path
-                className="text-orange-300"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeDasharray="5, 100"
-                strokeDashoffset="-90"
-                d="M18 2.0845
-              a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path
-                className="text-pink-400"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeDasharray="5, 100"
-                strokeDashoffset="-95"
-                d="M18 2.0845
-              a 15.9155 15.9155 0 0 1 0 31.831
-              a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-            </svg>
-            <div className="absolute text-center">
-              <p className="text-sm text-gray-500 dark:text-gray-400">Total </p>
-              <p className="text-xl font-bold text-gray-900 dark:text-white">
-                $12.6k{" "}
-              </p>
-            </div>
-          </div>
-
-          {/* Chart Legend */}
-          <div className="flex justify-center mt-6 space-x-4 text-sm font-medium">
-            <div className="flex items-center space-x-2">
-              <span className="w-3 h-3 bg-blue-600 rounded-full"></span>
-              <span className="text-gray-900 dark:text-white">Mac</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="w-3 h-3 bg-cyan-400 rounded-full"></span>
-              <span className="text-gray-900 dark:text-white">Windows</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="w-3 h-3 bg-orange-300 rounded-full"></span>
-              <span className="text-gray-900 dark:text-white">iOS</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="w-3 h-3 bg-pink-400 rounded-full"></span>
-              <span className="text-gray-900 dark:text-white">Android</span>
-            </div>
-          </div>
-        </div>
-        <div className="px-6 py-6">
-          <AreaInstalledChart />
-        </div>
+        <AreaInstalledChart />
       </div>
     </div>
   );
