@@ -69,6 +69,7 @@
 
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { RxAvatar } from "react-icons/rx";
 
 import SearchForm from "../../components/SearchForm/SearchForm";
 
@@ -135,7 +136,7 @@ const ManagersTable = () => {
                 Limits of users
               </th>
               <th scope="col" className="px-6 py-3">
-                Valid till
+                Valid Till
               </th>
               <th scope="col" className="px-6 py-3"></th>
             </tr>
@@ -158,7 +159,9 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                <img />{" "}
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
               <td className="px-6 py-4">John Smith</td>
               <td className="px-6 py-4">Algoace</td>
@@ -171,7 +174,9 @@ const ManagersTable = () => {
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -192,7 +197,9 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                <img src="" alt="" />{" "}
+                <span>
+                  <RxAvatar />
+                </span>
               </th>
               <td className="px-6 py-4">Soren Durham</td>
               <td className="px-6 py-4">10 pearl</td>
@@ -205,7 +212,9 @@ const ManagersTable = () => {
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -226,7 +235,9 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                <img src="" alt="" />{" "}
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
               <td className="px-6 py-4">Wendy Paterson</td>
               <td className="px-6 py-4">Looney Toones</td>
@@ -239,7 +250,9 @@ const ManagersTable = () => {
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -260,20 +273,24 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Apple Watch
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">Watches</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4">$199</td>
-              <td className="px-6 py-4">0.12 lb.</td>
+              <td className="px-6 py-4">Jason Hemmings</td>
+              <td className="px-6 py-4">Heimings</td>
+              <td className="px-6 py-4">jason.hemmings@gmail.com</td>
+              <td className="px-6 py-4">2</td>
+              <td className="px-6 py-4">50</td>
+              <td className="px-6 py-4">Mon Aug 21 2024</td>
               <td className="flex items-center px-6 py-4">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -294,20 +311,24 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Apple iMac
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">PC</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">$2999</td>
-              <td className="px-6 py-4">7.0 lb.</td>
+              <td className="px-6 py-4">Una Dyer</td>
+              <td className="px-6 py-4">Dyer's Group</td>
+              <td className="px-6 py-4">Una124@gmail.com</td>
+              <td className="px-6 py-4">6</td>
+              <td className="px-6 py-4">20</td>
+              <td className="px-6 py-4">Wed July 22 2021</td>
               <td className="flex items-center px-6 py-4">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -328,20 +349,24 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Apple AirPods
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
-              <td className="px-6 py-4">White</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">$399</td>
-              <td className="px-6 py-4">38 g</td>
+              <td className="px-6 py-4">Gavin slater</td>
+              <td className="px-6 py-4">Gavin's Group</td>
+              <td className="px-6 py-4">gavin.slater@gmail.com</td>
+              <td className="px-6 py-4">8</td>
+              <td className="px-6 py-4">30</td>
+              <td className="px-6 py-4">Sun June 30 2024</td>
               <td className="flex items-center px-6 py-4">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -362,20 +387,24 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                iPad Pro
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
-              <td className="px-6 py-4">Gold</td>
-              <td className="px-6 py-4">Tablet</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">$699</td>
-              <td className="px-6 py-4">1.3 lb.</td>
+              <td className="px-6 py-4">Dexter Shepherd</td>
+              <td className="px-6 py-4">Dycoders</td>
+              <td className="px-6 py-4">Louis.khapal124@gmail.com</td>
+              <td className="px-6 py-4">2</td>
+              <td className="px-6 py-4">20</td>
+              <td className="px-6 py-4">Fri0 Aug 21 2025</td>
               <td className="flex items-center px-6 py-4">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -396,20 +425,24 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Magic Keyboard
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">$99</td>
-              <td className="px-6 py-4">453 g</td>
+              <td className="px-6 py-4">Chase Day</td>
+              <td className="px-6 py-4">Travel Service</td>
+              <td className="px-6 py-4">jimmie.garbhold124@gmail.com</td>
+              <td className="px-6 py-4">0</td>
+              <td className="px-6 py-4">20</td>
+              <td className="px-6 py-4">Sun June 30 2024</td>
               <td className="flex items-center px-6 py-4">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -430,20 +463,24 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Apple TV 4K
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">TV</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4">$179</td>
-              <td className="px-6 py-4">1.78 lb.</td>
+              <td className="px-6 py-4">Sorein Durham</td>
+              <td className="px-6 py-4">Brain Trust</td>
+              <td className="px-6 py-4">constantiti91@yahoo.com</td>
+              <td className="px-6 py-4">20</td>
+              <td className="px-6 py-4">100</td>
+              <td className="px-6 py-4">Thurs Feb 26 2026</td>
               <td className="flex items-center px-6 py-4">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
@@ -464,20 +501,24 @@ const ManagersTable = () => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                AirTag
+                <span>
+                  <RxAvatar />
+                </span>{" "}
               </th>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">Yes</td>
-              <td className="px-6 py-4">No</td>
-              <td className="px-6 py-4">$29</td>
-              <td className="px-6 py-4">53 g</td>
+              <td className="px-6 py-4">Jaqueline brandin</td>
+              <td className="px-6 py-4">Softonic</td>
+              <td className="px-6 py-4">Julia456@gmail.com</td>
+              <td className="px-6 py-4">0</td>
+              <td className="px-6 py-4">22</td>
+              <td className="px-6 py-4">Sun June 23 2026</td>
               <td className="flex items-center px-6 py-4">
                 <a
                   href="#"
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </a>
               </td>
             </tr>
