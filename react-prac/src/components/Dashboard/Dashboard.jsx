@@ -4,7 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { IoIosSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import StatsCard from "../CardComponent/CardComponent";
-import AreaInstalledChart from '../AreaInstalled/AreaInstalled'
+import AreaInstalledChart from "../AreaInstalled/AreaInstalled";
 
 const Dashboard = () => {
   return (
@@ -36,7 +36,10 @@ const Dashboard = () => {
                 If you are going to use a passage of Lorem Ipsum, you need to be
                 sure there isn’t anything
               </p>
-              <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+              <button
+                onClick={() => alert("In Processing")}
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm"
+              >
                 Go Now
               </button>
             </div>
