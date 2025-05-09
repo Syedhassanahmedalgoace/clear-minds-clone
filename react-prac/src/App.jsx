@@ -47,7 +47,7 @@ import NotFound from "./components/NotFound/NotFound";
 import ManagersTable from "././components/ManagersTable/ManagersTable";
 import Payment from "./components/Payment/Payment";
 import PricingPage from "./components/Pricing/Pricing";
-
+import SubscriptionPage from "./components/SubscriptionPage/SubscriptionPage.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -90,6 +90,15 @@ function App() {
           element={
             <ProtectedRoute>
               <PricingPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/subscription"
+          element={
+            <ProtectedRoute>
+              <SubscriptionPage />
             </ProtectedRoute>
           }
         />
