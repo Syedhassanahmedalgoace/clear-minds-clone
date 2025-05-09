@@ -44,7 +44,8 @@ import ResetPassword from "./components/ResetPassword/ResetPassword";
 import Dashboard from "./components/Dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import NotFound from "./components/NotFound/NotFound";
-import ManagersTable from '././components/ManagersTable/ManagersTable';
+import ManagersTable from "././components/ManagersTable/ManagersTable";
+import Payment from "./components/Payment/Payment";
 
 function App() {
   return (
@@ -74,6 +75,14 @@ function App() {
           }
         />
 
+        <Route
+          path="/payment"
+          element={
+            <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
@@ -81,4 +90,3 @@ function App() {
 }
 
 export default App;
-

@@ -153,7 +153,7 @@ export default function ManagerTable() {
       avatar: "/api/placeholder/32/32",
       name: "Dabn Brady",
       company: "Algoace",
-      email: "brady84@hotrmail.com",
+      email: "brady84@hotmail.com",
       usersAdded: 0,
       limitOfUsers: 1000,
       subscriptionValidTill: "2025-12-31",
@@ -161,12 +161,92 @@ export default function ManagerTable() {
     {
       id: 2,
       avatar: "/api/placeholder/32/32",
-      name: "Karen Durham",
+      name: "Chase Day",
+      company: "The travel Service",
+      email: "jimmie.girhold@hotmail.com",
+      usersAdded: 0,
+      limitOfUsers: 30,
+      subscriptionValidTill: "2028-01-1",
+    },
+    {
+      id: 3,
+      avatar: "/api/placeholder/32/32",
+      name: "Soren Durham",
       company: "10 pearls",
-      email: "piana.xstone84@gmail.com",
+      email: "jona.simonis@gmail.com",
+      usersAdded: 0,
+      limitOfUsers: 50,
+      subscriptionValidTill: "2028-03-10",
+    },
+    {
+      id: 4,
+      avatar: "/api/placeholder/32/32",
+      name: "SYED HASSAN AHMED",
+      company: "Algoace",
+      email: "shassanahmed47@gmail.com",
+      usersAdded: 0,
+      limitOfUsers: 70,
+      subscriptionValidTill: "2028-09-22",
+    },
+    {
+      id: 5,
+      avatar: "/api/placeholder/32/32",
+      name: "Mirya Corner",
+      company: "Future Safe",
+      email: "Mayou's343@gmail.com",
+      usersAdded: 0,
+      limitOfUsers: 40,
+      subscriptionValidTill: "2027-05-25",
+    },
+    {
+      id: 6,
+      avatar: "/api/placeholder/32/32",
+      name: "Jequiline Spenser",
+      company: "Spensed",
+      email: "jequel.hyllo76@gmail.com",
+      usersAdded: 0,
+      limitOfUsers: 40,
+      subscriptionValidTill: "2027-06-15",
+    },
+    {
+      id: 7,
+      avatar: "/api/placeholder/32/32",
+      name: "Giana Brandt",
+      company: "Technidus",
+      email: "giana.bran454@gmail.com",
+      usersAdded: 0,
+      limitOfUsers: 23,
+      subscriptionValidTill: "2026-12-15",
+    },
+    {
+      id: 8,
+      avatar: "/api/placeholder/32/32",
+      name: "Dexter Shephered",
+      company: "Dycoders",
+      email: "dexter465@gmail.com",
       usersAdded: 0,
       limitOfUsers: 10,
-      subscriptionValidTill: "2025-06-15",
+      subscriptionValidTill: "2028-08-23",
+    },
+    {
+      id: 9,
+      avatar: "/api/placeholder/32/32",
+      name: "Lucia Camieli",
+      company: "Camelian",
+      email: "lucia865@gmail.com",
+      usersAdded: 1,
+      limitOfUsers: 25,
+      subscriptionValidTill: "2026-03-5",
+    },
+    {
+      id: 10,
+      avatar: "/api/placeholder/32/32",
+      name: "Serhat Dermas",
+      company: "Dharma",
+      email: "serhat.x84@gmail.com",
+      usersAdded: 2,
+      limitOfUsers: 20,
+      subscriptionValidTill: "2027-04-10",
     },
   ]);
 
@@ -449,7 +529,7 @@ export default function ManagerTable() {
                     <TableHead>Email</TableHead>
                     <TableHead>Users Added</TableHead>
                     <TableHead>Limit</TableHead>
-                    <TableHead>Subscription Valid till</TableHead>
+                    <TableHead>Subscription Valid Till</TableHead>
                     <TableHead className="w-12"></TableHead>
                   </TableRow>
                 </TableHeader>
@@ -641,7 +721,7 @@ export default function ManagerTable() {
                 htmlFor="limitOfUsers"
                 className="block text-sm font-medium text-gray-700"
               >
-                User Limit
+                User Limit{" "}
               </label>
               <input
                 type="number"
@@ -656,7 +736,7 @@ export default function ManagerTable() {
             </div>
             <div>
               <label
-                htmlFor="subscriptionValidTill"
+                htmlFor="subscription Valid Till"
                 className="block text-sm font-medium text-gray-700"
               >
                 Subscription Valid Till
