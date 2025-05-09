@@ -1,76 +1,88 @@
-import { useState } from 'react';
-import { CheckCircle, PlusCircle, Search, User, BarChart2, Users, Lock, CreditCard, Trash2 } from 'lucide-react';
+import { useState } from "react";
+import {
+  CheckCircle,
+  PlusCircle,
+  Search,
+  User,
+  BarChart2,
+  Users,
+  Lock,
+  CreditCard,
+  Trash2,
+} from "lucide-react";
 
 export default function SubscriptionPage() {
   const [billingInfo, setBillingInfo] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    address: ''
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
   });
-  
+
   const [showCardModal, setShowCardModal] = useState(false);
   const [newCardInfo, setNewCardInfo] = useState({
-    cardNumber: '',
-    cardHolder: '',
-    expiryDate: '',
-    cvv: ''
+    cardNumber: "",
+    cardHolder: "",
+    expiryDate: "",
+    cvv: "",
   });
-  
+
   const [savedCards, setSavedCards] = useState([]);
   const [activeCardIndex, setActiveCardIndex] = useState(-1);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setBillingInfo(prev => ({ ...prev, [name]: value }));
+    setBillingInfo((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const handleCardInputChange = (e) => {
     const { name, value } = e.target;
-    setNewCardInfo(prev => ({ ...prev, [name]: value }));
+    setNewCardInfo((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const openCardModal = () => {
     setShowCardModal(true);
   };
-  
+
   const closeCardModal = () => {
     setShowCardModal(false);
     setNewCardInfo({
-      cardNumber: '',
-      cardHolder: '',
-      expiryDate: '',
-      cvv: ''
+      cardNumber: "",
+      cardHolder: "",
+      expiryDate: "",
+      cvv: "",
     });
   };
-  
+
   const addNewCard = () => {
     // Format card number to show only last 4 digits
-    const formattedCardNumber = newCardInfo.cardNumber.trim().replace(/\s/g, '');
+    const formattedCardNumber = newCardInfo.cardNumber
+      .trim()
+      .replace(/\s/g, "");
     const lastFourDigits = formattedCardNumber.slice(-4);
     const maskedNumber = `•••• •••• •••• ${lastFourDigits}`;
-    
+
     const newCard = {
       ...newCardInfo,
       maskedNumber,
-      id: Date.now() // Simple unique ID
+      id: Date.now(), // Simple unique ID
     };
-    
+
     const updatedCards = [...savedCards, newCard];
     setSavedCards(updatedCards);
-    
+
     // Set as active card if it's the first one
     if (updatedCards.length === 1) {
       setActiveCardIndex(0);
     }
-    
+
     closeCardModal();
   };
-  
+
   const removeCard = (index) => {
     const updatedCards = savedCards.filter((_, i) => i !== index);
     setSavedCards(updatedCards);
-    
+
     // Update active card if needed
     if (activeCardIndex === index) {
       setActiveCardIndex(updatedCards.length > 0 ? 0 : -1);
@@ -78,7 +90,7 @@ export default function SubscriptionPage() {
       setActiveCardIndex(activeCardIndex - 1);
     }
   };
-  
+
   const setActiveCard = (index) => {
     setActiveCardIndex(index);
   };
@@ -97,7 +109,9 @@ export default function SubscriptionPage() {
         </div>
 
         <div className="mb-6">
-          <div className="text-xs text-gray-500 font-semibold mb-4">DASHBOARD</div>
+          <div className="text-xs text-gray-500 font-semibold mb-4">
+            DASHBOARD
+          </div>
           <div className="flex items-center text-gray-600 mb-3 py-2 px-3 rounded hover:bg-gray-100">
             <BarChart2 size={18} />
             <span className="ml-3">Analytics</span>
@@ -111,11 +125,17 @@ export default function SubscriptionPage() {
         <div className="mt-auto">
           <div className="flex items-center">
             <div className="h-10 w-10 bg-gray-200 rounded-full relative">
-              <div className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded px-1">Free</div>
+              <div className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded px-1">
+                Free
+              </div>
             </div>
             <div className="ml-3">
-              <div className="text-sm font-medium text-center">Osama Rashid</div>
-              <div className="text-xs text-gray-500">osama.rashid@algoace.com</div>
+              <div className="text-sm font-medium text-center">
+                Osama Rashid
+              </div>
+              <div className="text-xs text-gray-500">
+                osama.rashid@algoace.com
+              </div>
             </div>
           </div>
           <button className="mt-4 bg-gray-900 text-white text-sm py-2 px-4 rounded-md ml-16">
@@ -147,8 +167,12 @@ export default function SubscriptionPage() {
         <div className="flex-1 p-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-6">
-              <h1 className="text-2xl md:text-3xl font-bold mb-2">Let's finish powering you up!</h1>
-              <p className="text-gray-500">Professional plan is right for you.</p>
+              <h1 className="text-2xl md:text-3xl font-bold mb-2">
+                Let's finish powering you up!
+              </h1>
+              <p className="text-gray-500">
+                Professional plan is right for you.
+              </p>
             </div>
 
             <div className="flex flex-col md:flex-row gap-8">
@@ -190,30 +214,44 @@ export default function SubscriptionPage() {
                   />
                 </div>
 
-                <h2 className="font-medium text-lg mt-8 mb-4">Payment Method</h2>
-                
+                <h2 className="font-medium text-lg mt-8 mb-4">
+                  Payment Method
+                </h2>
+
                 {/* Display saved cards */}
                 {savedCards.length > 0 && (
                   <div className="space-y-3 mb-4">
                     {savedCards.map((card, index) => (
-                      <div 
-                        key={card.id} 
+                      <div
+                        key={card.id}
                         className={`border rounded p-4 flex items-center justify-between cursor-pointer ${
-                          activeCardIndex === index ? 'border-teal-500 bg-teal-50' : 'border-gray-300'
+                          activeCardIndex === index
+                            ? "border-teal-500 bg-teal-50"
+                            : "border-gray-300"
                         }`}
                         onClick={() => setActiveCard(index)}
                       >
                         <div className="flex items-center">
                           {activeCardIndex === index && (
-                            <CheckCircle size={20} className="text-green-500 mr-2" />
+                            <CheckCircle
+                              size={20}
+                              className="text-green-500 mr-2"
+                            />
                           )}
-                          <CreditCard size={20} className="text-gray-500 mr-2" />
+                          <CreditCard
+                            size={20}
+                            className="text-gray-500 mr-2"
+                          />
                           <div>
-                            <div className="text-sm font-medium">{card.maskedNumber}</div>
-                            <div className="text-xs text-gray-500">Expires: {card.expiryDate}</div>
+                            <div className="text-sm font-medium">
+                              {card.maskedNumber}
+                            </div>
+                            <div className="text-xs text-gray-500">
+                              Expires: {card.expiryDate}
+                            </div>
                           </div>
                         </div>
-                        <button 
+                        <button
                           onClick={(e) => {
                             e.stopPropagation();
                             removeCard(index);
@@ -226,10 +264,11 @@ export default function SubscriptionPage() {
                     ))}
                   </div>
                 )}
-                
-                <button 
+
+                <button
                   onClick={openCardModal}
-                  className="mt-2 border border-gray-300 rounded p-4 w-full flex items-center justify-center text-teal-500">
+                  className="mt-2 border border-gray-300 rounded p-4 w-full flex items-center justify-center text-teal-500"
+                >
                   <PlusCircle size={20} className="mr-2" />
                   Add New Card
                 </button>
@@ -239,49 +278,55 @@ export default function SubscriptionPage() {
               <div className="md:w-80">
                 <div className="bg-gray-50 rounded-lg p-6">
                   <h2 className="font-medium text-lg mb-4">Summary</h2>
-                  
+
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-600">Subscription</span>
-                    <span className="bg-red-100 text-red-500 text-xs font-medium px-2 py-1 rounded">PREMIUM</span>
+                    <span className="bg-red-100 text-red-500 text-xs font-medium px-2 py-1 rounded">
+                      PREMIUM
+                    </span>
                   </div>
-                  
+
                   <div className="flex justify-between items-center mb-6">
                     <span className="text-gray-600">Billed Monthly</span>
                     <div className="w-10 h-6 bg-green-500 rounded-full flex items-center justify-end p-1">
                       <div className="w-4 h-4 bg-white rounded-full"></div>
                     </div>
                   </div>
-                  
+
                   <div className="flex justify-between items-baseline mb-6">
                     <div className="flex items-baseline">
                       <span className="text-3xl font-bold">$9.99</span>
                       <span className="text-gray-500 text-sm ml-1">/mo</span>
                     </div>
                   </div>
-                  
+
                   <div className="border-t border-gray-200 pt-4 mb-1">
                     <div className="flex justify-between">
                       <span className="font-medium">Total Billed</span>
                       <span className="font-medium">$9.99*</span>
                     </div>
                   </div>
-                  
-                  <div className="text-xs text-gray-500 mb-6">* Plus applicable taxes</div>
-                  
-                  <button 
+
+                  <div className="text-xs text-gray-500 mb-6">
+                    * Plus applicable taxes
+                  </div>
+
+                  <button
                     className={`w-full py-3 rounded-lg mb-4 ${
-                      savedCards.length > 0 ? 'bg-gray-900 text-white' : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      savedCards.length > 0
+                        ? "bg-gray-900 text-white"
+                        : "bg-gray-300 text-gray-500 cursor-not-allowed"
                     }`}
                     disabled={savedCards.length === 0}
                   >
                     Upgrade My Plan
                   </button>
-                  
+
                   <div className="flex items-center justify-center text-sm text-gray-600 mb-2">
                     <CheckCircle size={16} className="text-green-500 mr-2" />
                     Secure credit card payment
                   </div>
-                  
+
                   <div className="text-xs text-gray-500 text-center">
                     This is a secure 128-bit SSL encrypted payment
                   </div>
@@ -297,10 +342,12 @@ export default function SubscriptionPage() {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4">New Card</h2>
-            
+
             <div className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Card Number</label>
+                <label className="block text-sm text-gray-600 mb-1">
+                  Card Number
+                </label>
                 <input
                   type="text"
                   name="cardNumber"
@@ -310,9 +357,11 @@ export default function SubscriptionPage() {
                   className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Card Holder</label>
+                <label className="block text-sm text-gray-600 mb-1">
+                  Card Holder
+                </label>
                 <input
                   type="text"
                   name="cardHolder"
@@ -322,10 +371,12 @@ export default function SubscriptionPage() {
                   className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
-              
+
               <div className="flex gap-4">
                 <div className="flex-1">
-                  <label className="block text-sm text-gray-600 mb-1">Expiration Date</label>
+                  <label className="block text-sm text-gray-600 mb-1">
+                    Expiration Date
+                  </label>
                   <input
                     type="text"
                     name="expiryDate"
@@ -335,9 +386,11 @@ export default function SubscriptionPage() {
                     className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
-                
+
                 <div className="flex-1">
-                  <label className="block text-sm text-gray-600 mb-1">CVV/CVC</label>
+                  <label className="block text-sm text-gray-600 mb-1">
+                    CVV/CVC
+                  </label>
                   <input
                     type="text"
                     name="cvv"
@@ -348,13 +401,13 @@ export default function SubscriptionPage() {
                   />
                 </div>
               </div>
-              
+
               <div className="flex items-center text-sm text-gray-500 mt-2 mb-4">
                 <Lock size={16} className="mr-2" />
                 <span>Your transaction is secured with SSL encryption</span>
               </div>
             </div>
-            
+
             <div className="flex justify-end gap-3 mt-6">
               <button
                 onClick={closeCardModal}
@@ -365,7 +418,12 @@ export default function SubscriptionPage() {
               <button
                 onClick={addNewCard}
                 className="px-4 py-2 bg-gray-900 text-white rounded"
-                disabled={!newCardInfo.cardNumber || !newCardInfo.cardHolder || !newCardInfo.expiryDate || !newCardInfo.cvv}
+                disabled={
+                  !newCardInfo.cardNumber ||
+                  !newCardInfo.cardHolder ||
+                  !newCardInfo.expiryDate ||
+                  !newCardInfo.cvv
+                }
               >
                 Add
               </button>
