@@ -15,8 +15,7 @@ export default function ForgotPassword() {
 
     try {
       await sendPasswordResetEmail(auth, email, {
-        // 👇 Optional: Send them to your custom page
-        url: "http://localhost:5173/reset-password", // or your production link
+        url: "http://localhost:5173/reset-password",
         handleCodeInApp: true,
       });
       setSuccess("Reset link sent to your email");
