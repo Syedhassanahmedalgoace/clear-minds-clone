@@ -46,6 +46,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import NotFound from "./components/NotFound/NotFound";
 import ManagersTable from "././components/ManagersTable/ManagersTable";
 import Payment from "./components/Payment/Payment";
+import PricingPage from "./components/Pricing/Pricing";
 
 function App() {
   return (
@@ -83,6 +84,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/pricing"
+          element={
+            <ProtectedRoute>
+              <PricingPage />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
