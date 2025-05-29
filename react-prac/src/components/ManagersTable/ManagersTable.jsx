@@ -12,6 +12,7 @@ import {
   Trash2,
   X,
   Calendar,
+  Menu,
 } from "lucide-react";
 
 const DropdownMenu = ({ children }) => {
@@ -42,7 +43,9 @@ const DropdownMenuItem = ({ className, children, onClick }) => (
 );
 
 const Table = ({ children }) => (
-  <table className="min-w-full divide-y divide-gray-200">{children}</table>
+  <div className="overflow-x-auto">
+    <table className="min-w-full divide-y divide-gray-200">{children}</table>
+  </div>
 );
 const TableHeader = ({ children }) => (
   <thead className="bg-gray-50">{children}</thead>
@@ -53,15 +56,19 @@ const TableBody = ({ children }) => (
 const TableRow = ({ children }) => <tr>{children}</tr>;
 const TableHead = ({ className, children }) => (
   <th
-    className={`px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${
+    className={`px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${
       className || ""
     }`}
   >
     {children}
   </th>
 );
-const TableCell = ({ children }) => (
-  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+const TableCell = ({ className, children }) => (
+  <td
+    className={`px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 ${
+      className || ""
+    }`}
+  >
     {children}
   </td>
 );
@@ -105,13 +112,12 @@ const SelectItem = ({ value, onClick, children }) => (
   </div>
 );
 
-// Modal component for the form
 const Modal = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-lg p-4 w-full max-w-md">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-medium">{title}</h3>
           <button
@@ -135,6 +141,7 @@ export default function ManagerTable() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -421,10 +428,45 @@ export default function ManagerTable() {
   };
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex flex-col md:flex-row h-screen bg-white">
+      {/* Mobile Menu Button */}
+      <div className="md:hidden flex items-center justify-between p-4 border-b">
+        <div className="flex items-center">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-6 w-6 text-teal-500"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M12 16V8M8 12H16"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+          <span className="ml-2 text-gray-700 font-medium">clear minds</span>
+        </div>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+      </div>
+
       {/* Sidebar */}
-      <div className="w-48 border-r border-gray-200 bg-white">
-        <div className="p-4 border-b">
+      <div
+        className={`${
+          isMobileMenuOpen ? "block" : "hidden"
+        } md:block w-full md:w-48 border-r border-gray-200 bg-white`}
+      >
+        <div className="p-4 border-b hidden md:block">
           <div className="flex items-center">
             <svg
               viewBox="0 0 24 24"
@@ -470,20 +512,20 @@ export default function ManagerTable() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        <main className="flex-1 overflow-y-auto p-6">
-          <div className="flex justify-between items-center mb-6">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <h1 className="text-2xl font-semibold text-gray-900">Managers</h1>
-            <div className="flex space-x-2">
+            <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50"
+                className="flex items-center justify-center px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-700 bg-white hover:bg-gray-50 w-full sm:w-auto"
               >
                 <Plus className="h-4 w-4 mr-2 text-teal-500" />
                 New Manager
               </button>
               <button
                 onClick={() => setIsUploadModalOpen(true)}
-                className="flex items-center px-3 py-2 rounded-md text-sm text-white bg-teal-600 hover:bg-teal-700"
+                className="flex items-center justify-center px-3 py-2 rounded-md text-sm text-white bg-teal-600 hover:bg-teal-700 w-full sm:w-auto"
               >
                 <Upload className="h-4 w-4 mr-2" />
                 Upload
@@ -492,7 +534,7 @@ export default function ManagerTable() {
           </div>
 
           {/* Table Section */}
-          <div className="bg-white shadow rounded-lg">
+          <div className="bg-white shadow rounded-lg overflow-hidden">
             <div className="p-4 border-b">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -508,97 +550,118 @@ export default function ManagerTable() {
               </div>
             </div>
 
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-12">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-12">
+                    <input
+                      type="checkbox"
+                      className="rounded border-gray-300"
+                      checked={
+                        selectedRows.length === paginatedManagers.length &&
+                        paginatedManagers.length > 0
+                      }
+                      onChange={toggleSelectAll}
+                    />
+                  </TableHead>
+                  <TableHead className="w-12">Avatar</TableHead>
+                  <TableHead>Name</TableHead>
+                  <TableHead className="hidden sm:table-cell">Company</TableHead>
+                  <TableHead className="hidden md:table-cell">Email</TableHead>
+                  <TableHead className="hidden lg:table-cell">
+                    Users Added
+                  </TableHead>
+                  <TableHead className="hidden lg:table-cell">Limit</TableHead>
+                  <TableHead className="hidden xl:table-cell">
+                    Subscription
+                  </TableHead>
+                  <TableHead className="w-12"></TableHead>
+                </TableRow>
+              </TableHeader>
+
+              <TableBody>
+                {paginatedManagers.map((manager) => (
+                  <TableRow key={manager.id}>
+                    <TableCell>
                       <input
                         type="checkbox"
                         className="rounded border-gray-300"
-                        checked={
-                          selectedRows.length === paginatedManagers.length &&
-                          paginatedManagers.length > 0
-                        }
-                        onChange={toggleSelectAll}
+                        checked={selectedRows.includes(manager.id)}
+                        onChange={() => toggleSelectRow(manager.id)}
                       />
-                    </TableHead>
-                    <TableHead className="w-12">Avatar</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Company</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Users Added</TableHead>
-                    <TableHead>Limit</TableHead>
-                    <TableHead>Subscription Valid Till</TableHead>
-                    <TableHead className="w-12"></TableHead>
+                    </TableCell>
+                    <TableCell>
+                      <img
+                        src={manager.avatar || "/placeholder.svg"}
+                        alt="avatar"
+                        className="h-8 w-8 rounded-full"
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <div className="font-medium text-gray-900">
+                        {manager.name}
+                      </div>
+                      <div className="sm:hidden text-xs text-gray-500">
+                        {manager.company}
+                      </div>
+                      <div className="md:hidden text-xs text-gray-500 truncate max-w-[120px]">
+                        {manager.email}
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell">
+                      {manager.company}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {manager.email}
+                    </TableCell>
+                    <TableCell className="hidden lg:table-cell">
+                      {manager.usersAdded}
+                    </TableCell>
+                    <TableCell className="hidden lg:table-cell">
+                      {manager.limitOfUsers}
+                    </TableCell>
+                    <TableCell className="hidden xl:table-cell">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1 text-teal-500" />
+                        <span className="text-xs text-gray-600">
+                          {formatDate(manager.subscriptionValidTill)}
+                        </span>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <button className="p-1 rounded-full hover:bg-gray-100">
+                            <MoreVertical className="h-4 w-4 text-gray-500" />
+                          </button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem
+                            onClick={() => handleEditClick(manager)}
+                          >
+                            <Edit2 className="h-4 w-4 mr-2" />
+                            Edit
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            className="text-red-600"
+                            onClick={() => handleDeleteManager(manager.id)}
+                          >
+                            <Trash2 className="h-4 w-4 mr-2" />
+                            Delete
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
                   </TableRow>
-                </TableHeader>
-
-                <TableBody>
-                  {paginatedManagers.map((manager) => (
-                    <TableRow key={manager.id}>
-                      <TableCell>
-                        <input
-                          type="checkbox"
-                          className="rounded border-gray-300"
-                          checked={selectedRows.includes(manager.id)}
-                          onChange={() => toggleSelectRow(manager.id)}
-                        />
-                      </TableCell>
-                      <TableCell>
-                        <img
-                          src={manager.avatar || "/placeholder.svg"}
-                          alt="avatar"
-                          className="h-8 w-8 rounded-full"
-                        />
-                      </TableCell>
-                      <TableCell>{manager.name}</TableCell>
-                      <TableCell>{manager.company}</TableCell>
-                      <TableCell>{manager.email}</TableCell>
-                      <TableCell>{manager.usersAdded}</TableCell>
-                      <TableCell>{manager.limitOfUsers}</TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1 text-teal-500" />
-                          <span className="text-xs text-gray-600">
-                            {formatDate(manager.subscriptionValidTill)}
-                          </span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <button className="p-1 rounded-full hover:bg-gray-100">
-                              <MoreVertical className="h-4 w-4 text-gray-500" />
-                            </button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuItem
-                              onClick={() => handleEditClick(manager)}
-                            >
-                              <Edit2 className="h-4 w-4 mr-2" />
-                              Edit
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className="text-red-600"
-                              onClick={() => handleDeleteManager(manager.id)}
-                            >
-                              <Trash2 className="h-4 w-4 mr-2" />
-                              Delete
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
+                ))}
+              </TableBody>
+            </Table>
 
             {/* Pagination */}
-            <div className="px-4 py-3 flex justify-between items-center border-t">
+            <div className="px-4 py-3 flex flex-col sm:flex-row justify-between items-center border-t gap-4">
               <div className="flex items-center space-x-2">
-                <span className="text-sm">Rows per page:</span>
+                <span className="text-sm hidden sm:inline">Rows per page:</span>
+                <span className="text-sm sm:hidden">Rows:</span>
                 <Select value={rowsPerPage} onValueChange={setRowsPerPage}>
                   <SelectTrigger className="w-16 h-8 text-xs">
                     <SelectValue placeholder={rowsPerPage} />
@@ -625,9 +688,7 @@ export default function ManagerTable() {
               <div className="flex items-center space-x-2">
                 <button
                   className="p-1 rounded-full hover:bg-gray-100"
-                  onClick={() =>
-                    setCurrentPage((prev) => Math.max(prev - 1, 1))
-                  }
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                   disabled={currentPage === 1}
                 >
                   <ChevronLeft
@@ -751,14 +812,14 @@ export default function ManagerTable() {
               />
             </div>
           </div>
-          <div className="mt-6 flex justify-end">
+          <div className="mt-6 flex justify-end gap-3">
             <button
               type="button"
               onClick={() => {
                 setIsModalOpen(false);
                 resetForm();
               }}
-              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 mr-3"
+              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50"
             >
               Cancel
             </button>
@@ -869,14 +930,14 @@ export default function ManagerTable() {
               />
             </div>
           </div>
-          <div className="mt-6 flex justify-end">
+          <div className="mt-6 flex justify-end gap-3">
             <button
               type="button"
               onClick={() => {
                 setIsEditModalOpen(false);
                 resetForm();
               }}
-              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 mr-3"
+              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50"
             >
               Cancel
             </button>
@@ -954,7 +1015,7 @@ export default function ManagerTable() {
               </div>
             )}
           </div>
-          <div className="mt-6 flex justify-end">
+          <div className="mt-6 flex justify-end gap-3">
             <button
               type="button"
               onClick={() => {
@@ -962,7 +1023,7 @@ export default function ManagerTable() {
                 setSelectedFile(null);
                 setSelectedManagerId(null);
               }}
-              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 mr-3"
+              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50"
             >
               Cancel
             </button>
