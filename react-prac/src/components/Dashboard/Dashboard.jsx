@@ -22,7 +22,7 @@ const Dashboard = () => {
         </div>
         {/* Title */}
         <div className="p-6">
-          <h1 className="text-2xl font-bold mb-4">Welcome to Dashboard</h1>
+          <h1 className="text-2xl font-bold mb-4">Welcome To Dashboard</h1>
         </div>
 
         {/* Cards Section */}
@@ -36,7 +36,7 @@ const Dashboard = () => {
               </h2>
               <p className="text-gray-700 mb-4">
                 If you are going to use a passage of Lorem Ispum, you need to be
-                sure there isn't nothing.
+                sure there isn't nothing....
               </p>
               <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
                 Go Now
