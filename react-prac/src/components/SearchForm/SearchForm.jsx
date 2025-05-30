@@ -3,7 +3,6 @@ import React from "react";
 const SearchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your search logic here
   };
 
   return (
