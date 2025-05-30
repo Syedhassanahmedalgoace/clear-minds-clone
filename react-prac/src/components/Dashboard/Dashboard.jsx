@@ -22,7 +22,7 @@ const Dashboard = () => {
         </div>
         {/* Title */}
         <div className="p-6">
-          <h1 className="text-2xl font-bold mb-4">Welcome to Dashboard</h1>
+          <h1 className="text-2xl font-bold mb-4">Welcome to Dasboard</h1>
         </div>
 
         {/* Cards Section */}
@@ -58,7 +58,7 @@ const Dashboard = () => {
             />
             <div className="relative p-6">
               <p className="text-green-400 uppercase text-xs font-semibold mb-1 mt-25">
-                Featured App
+                Featured App{" "}
               </p>
               <h3 className="text-xl font-bold mb-1 mt-4">
                 Strike a yogi pose
