@@ -183,13 +183,13 @@ export default function PricingPage() {
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-gray-900 mr-2 flex-shrink-0" />
                         <span className="text-gray-700">
-                          10 seats for your users
+                          10 seats for you users{" "}
                         </span>
                       </li>
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-gray-900 mr-2 flex-shrink-0" />
                         <span className="text-gray-700">
-                          Ideal for small teams
+                          Ideal for small teams{" "}
                         </span>
                       </li>
                       <li className="flex items-start">
