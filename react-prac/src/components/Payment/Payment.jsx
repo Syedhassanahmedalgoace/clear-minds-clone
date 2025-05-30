@@ -80,7 +80,9 @@ export default function PricingPage() {
                 <span className="text-xs text-gray-600">OR</span>
               </div> */}
               <div className="flex flex-col">
-                <span className="text-sm font-medium text-center">Osama Rashid</span>
+                <span className="text-sm font-medium text-center">
+                  Osama Rashid
+                </span>
                 <span className="text-xs text-gray-500 truncate">
                   osama.rashid@gmail.com
                 </span>
@@ -96,7 +98,7 @@ export default function PricingPage() {
         <main className="flex-1 p-4 md:p-8">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">
-              Flexible plans for your community's size and needs
+              Flexible Plans for your community's size and needs
             </h1>
             <p className="text-gray-600 mb-8 text-center">
               Select a plan to empower your team
@@ -156,7 +158,9 @@ export default function PricingPage() {
                         <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
                       </svg>
                     </div>
-                    <h2 className="text-xl font-bold text-gray-900 mb-6">Starter</h2>
+                    <h2 className="text-xl font-bold text-gray-900 mb-6">
+                      Starter
+                    </h2>
                   </div>
 
                   <div className="text-sm text-gray-600 mb-6">
@@ -226,7 +230,9 @@ export default function PricingPage() {
                         <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
                       </svg>
                     </div>
-                    <h2 className="text-xl font-bold text-gray-900 mb-6">Premium</h2>
+                    <h2 className="text-xl font-bold text-gray-900 mb-6">
+                      Premium
+                    </h2>
                   </div>
 
                   <div className="text-sm text-gray-600 mb-4">

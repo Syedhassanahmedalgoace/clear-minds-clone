@@ -168,7 +168,7 @@ export default function ManagerTable() {
     {
       id: 2,
       avatar: "/api/placeholder/32/32",
-      name: "Chase Day",
+      name: "Chasee Day",
       company: "The travel Service",
       email: "jimmie.girhold@hotmail.com",
       usersAdded: 0,
