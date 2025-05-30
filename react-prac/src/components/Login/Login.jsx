@@ -17,7 +17,7 @@ export default function Login() {
     setSuccess("");
 
     if (!email || !password) {
-      setError("Please enter both email and password.");
+      setError("Please Enter both email and password.");
       return;
     }
 
@@ -29,7 +29,7 @@ export default function Login() {
         navigate("/dashboard");
       }, 2000);
     } catch (err) {
-      console.error("Login error:", err);
+      console.error("Login Error:", err);
       switch (err.code) {
         case "auth/user-not-found":
           setError("User not found. Please sign up first.");
@@ -41,7 +41,7 @@ export default function Login() {
           setError("Invalid email format.");
           break;
         default:
-          setError("Login failed. Please check your credentials.");
+          setError("Login Failed. Please check your credentials.");
       }
     }
   };
@@ -93,12 +93,12 @@ export default function Login() {
             type="submit"
             className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-full w-full transition-all"
           >
-            Sign In
+            Sign In{" "}
           </button>
 
           <div className="text-sm text-center text-teal-600">
             <a href="/signup" className="hover:underline">
-              Don't have an account? Sign Up
+              Don't have an account?? Sign Up
             </a>
           </div>
         </form>
