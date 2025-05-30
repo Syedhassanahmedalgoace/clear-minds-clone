@@ -98,7 +98,7 @@ export default function PricingPage() {
         <main className="flex-1 p-4 md:p-8">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">
-              Flexible Plans for your community's size and needs
+              Flexible plans for your community's size and needs
             </h1>
             <p className="text-gray-600 mb-8 text-center">
               Select a plan to empower your team
@@ -183,7 +183,7 @@ export default function PricingPage() {
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-gray-900 mr-2 flex-shrink-0" />
                         <span className="text-gray-700">
-                          10 seats for you users{" "}
+                          10 seats for your users{" "}
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -195,7 +195,7 @@ export default function PricingPage() {
                       <li className="flex items-start">
                         <Check className="h-5 w-5 text-gray-900 mr-2 flex-shrink-0" />
                         <span className="text-gray-700">
-                          Affordable and efficient
+                          Affordable & Efficient
                         </span>
                       </li>
                     </ul>
