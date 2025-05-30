@@ -31,7 +31,7 @@ const Dashboard = () => {
           <div className="flex items-center justify-between p-6 bg-green-100 rounded-2xl w-200 h-60">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Welcome back 👋 <br />
+                Welcome Back 👋 <br />
                 Fabiana Capmany
               </h2>
               <p className="text-gray-700 mb-4">
