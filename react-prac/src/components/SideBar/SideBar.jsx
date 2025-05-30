@@ -21,7 +21,7 @@ const Sidebar = () => {
       await signOut(auth);
       navigate("/login");
     } catch (error) {
-      console.error("Logout failed:", error);
+      console.error("Logout Failed:", error);
     }
   };
 
