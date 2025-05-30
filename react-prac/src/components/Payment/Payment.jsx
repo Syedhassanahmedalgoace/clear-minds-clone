@@ -279,7 +279,7 @@ export default function PricingPage() {
                 </div>
                 <div className="px-6 py-2 text-right">
                   <a href="#" className="text-sm text-blue-600 hover:underline">
-                    All
+                    ALL
                   </a>
                 </div>
               </div>
