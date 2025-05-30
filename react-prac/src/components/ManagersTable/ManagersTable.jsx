@@ -192,7 +192,7 @@ export default function ManagerTable() {
       id: 4,
       avatar:
         "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-173524.jpg",
-      name: "SYED HASSAN AHMED",
+      name: "syed hassan ahmed",
       company: "Algoace",
       email: "shassanahmed47@gmail.com",
       usersAdded: 7,
