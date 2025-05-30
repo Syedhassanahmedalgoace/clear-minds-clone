@@ -157,7 +157,8 @@ export default function ManagerTable() {
   const [managers, setManagers] = useState([
     {
       id: 1,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740",
       name: "John Doe",
       company: "Algoace",
       email: "Johndoe754@hotmail.com",
@@ -167,7 +168,8 @@ export default function ManagerTable() {
     },
     {
       id: 2,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg?semt=ais_hybrid&w=740",
       name: "Jimmi Girhold",
       company: "The travel Service",
       email: "jimmie.girhold@hotmail.com",
@@ -177,7 +179,8 @@ export default function ManagerTable() {
     },
     {
       id: 3,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://static.vecteezy.com/system/resources/previews/004/899/680/non_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg",
       name: "Jona",
       company: "10 pearls",
       email: "jona.simonis@gmail.com",
@@ -187,7 +190,8 @@ export default function ManagerTable() {
     },
     {
       id: 4,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-173524.jpg",
       name: "SYED HASSAN AHMED",
       company: "Algoace",
       email: "shassanahmed47@gmail.com",
@@ -197,7 +201,8 @@ export default function ManagerTable() {
     },
     {
       id: 5,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://t4.ftcdn.net/jpg/02/79/66/93/360_F_279669366_Lk12QalYQKMczLEa4ySjhaLtx1M2u7e6.jpg",
       name: "Mirya Corner",
       company: "Future Safe",
       email: "Mayou's343@gmail.com",
@@ -207,7 +212,8 @@ export default function ManagerTable() {
     },
     {
       id: 6,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWkpRcVB4hMuHQo3ZoEu0ySR4ZgHCYIz45QQ&s",
       name: "Jequiline Spenser",
       company: "Spensed",
       email: "jequel.hyllo76@gmail.com",
@@ -217,7 +223,8 @@ export default function ManagerTable() {
     },
     {
       id: 7,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://static.vecteezy.com/system/resources/previews/024/183/525/non_2x/avatar-of-a-man-portrait-of-a-young-guy-illustration-of-male-character-in-modern-color-style-vector.jpg",
       name: "Giana Brandt",
       company: "Technidus",
       email: "giana.bran454@gmail.com",
@@ -227,7 +234,8 @@ export default function ManagerTable() {
     },
     {
       id: 8,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://thumbs.dreamstime.com/b/%D0%B3%D1%9F%D0%B3%D2%91%D0%B3%C2%B7%D0%B3-%D0%B3%D1%96%D0%B3%D1%98-male-avatar-realistic-face-man-suit-shirt-necktie-businessman-head-shoulder-icon-vector-186025729.jpg",
       name: "Dexter Shephered",
       company: "Dycoders",
       email: "dexter465@gmail.com",
@@ -237,7 +245,8 @@ export default function ManagerTable() {
     },
     {
       id: 9,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://png.pngtree.com/png-vector/20240910/ourmid/pngtree-business-women-avatar-png-image_13805764.png",
       name: "Lucia Camieli",
       company: "Camelian",
       email: "lucia865@gmail.com",
@@ -247,7 +256,8 @@ export default function ManagerTable() {
     },
     {
       id: 10,
-      avatar: "/api/placeholder/32/32",
+      avatar:
+        "https://thumbs.dreamstime.com/b/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg",
       name: "Serhat Dermas",
       company: "Dharma",
       email: "serhat.x84@gmail.com",
