@@ -13,7 +13,7 @@ const Dashboard = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <div className="flex justify-between items-center px-6 py-4">
+        <div className="flex-justify-between items-center px-6 py-4">
           <CiSearch size={24} />
           <div className="flex gap-4 items-center">
             <IoIosSettings size={24} />
@@ -22,7 +22,7 @@ const Dashboard = () => {
         </div>
         {/* Title */}
         <div className="p-6">
-          <h1 className="text-2xl font-bold mb-4">Welcome to Dasboard</h1>
+          <h1 className="text-2xl font-bold mb-4">Welcome to Dashboard</h1>
         </div>
 
         {/* Cards Section */}
@@ -35,8 +35,8 @@ const Dashboard = () => {
                 Fabiana Capmany
               </h2>
               <p className="text-gray-700 mb-4">
-                If you are going to use a passage of Lorem Ipsum, you need to be
-                sure there isn’t anything
+                If you are going to use a passage of Lorem Ispum, you need to be
+                sure there isn't nothing
               </p>
               <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
                 Go Now
