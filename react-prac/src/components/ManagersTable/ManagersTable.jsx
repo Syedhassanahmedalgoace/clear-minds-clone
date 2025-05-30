@@ -566,7 +566,9 @@ export default function ManagerTable() {
                   </TableHead>
                   <TableHead className="w-12">Avatar</TableHead>
                   <TableHead>Name</TableHead>
-                  <TableHead className="hidden sm:table-cell">Company</TableHead>
+                  <TableHead className="hidden sm:table-cell">
+                    Company
+                  </TableHead>
                   <TableHead className="hidden md:table-cell">Email</TableHead>
                   <TableHead className="hidden lg:table-cell">
                     Users Added
@@ -688,7 +690,9 @@ export default function ManagerTable() {
               <div className="flex items-center space-x-2">
                 <button
                   className="p-1 rounded-full hover:bg-gray-100"
-                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.max(prev - 1, 1))
+                  }
                   disabled={currentPage === 1}
                 >
                   <ChevronLeft
