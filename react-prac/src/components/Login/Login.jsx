@@ -23,10 +23,10 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setSuccess("Logged in successfully 🎉");
+      setSuccess("Logged In Successfully 🎉");
 
       setTimeout(() => {
-        navigate("/dashboard"); // Redirect after login
+        navigate("/dashboard");
       }, 2000);
     } catch (err) {
       console.error("Login error:", err);
