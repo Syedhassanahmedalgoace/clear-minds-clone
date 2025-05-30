@@ -9,6 +9,7 @@ import {
   Lock,
   CreditCard,
   Trash2,
+  Menu,
 } from "lucide-react";
 
 export default function SubscriptionPage() {
@@ -29,6 +30,7 @@ export default function SubscriptionPage() {
 
   const [savedCards, setSavedCards] = useState([]);
   const [activeCardIndex, setActiveCardIndex] = useState(-1);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -97,8 +99,20 @@ export default function SubscriptionPage() {
 
   return (
     <div className="flex min-h-screen bg-white">
+      {/* Mobile Sidebar Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        ></div>
+      )}
+
       {/* Sidebar */}
-      <div className="hidden md:flex flex-col w-64 bg-white border-r border-gray-200 p-6">
+      <div
+        className={`fixed md:relative z-50 md:z-auto transform ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col w-64 bg-white border-r border-gray-200 p-6 h-full`}
+      >
         <div className="mb-8">
           <div className="flex items-center">
             <div className="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center">
@@ -122,7 +136,7 @@ export default function SubscriptionPage() {
           </div>
         </div>
 
-        <div className="mt-auto">
+        <div className="mt-99">
           <div className="flex items-center">
             <div className="h-10 w-10 bg-gray-200 rounded-full relative">
               <div className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded px-1">
@@ -145,16 +159,25 @@ export default function SubscriptionPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col overflow-x-hidden">
         {/* Header */}
         <header className="flex items-center justify-between p-4 border-b border-gray-200">
-          <div className="md:hidden flex items-center">
-            <div className="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center">
-              <div className="h-4 w-4 bg-white rounded-full"></div>
+          <div className="flex items-center">
+            <button
+              className="md:hidden mr-4 text-gray-500"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <Menu size={24} />
+            </button>
+            <div className="flex items-center">
+              <div className="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center md:hidden">
+                <div className="h-4 w-4 bg-white rounded-full"></div>
+              </div>
+              <span className="ml-2 text-teal-500 font-medium md:hidden">
+                clear minds
+              </span>
             </div>
-            <span className="ml-2 text-teal-500 font-medium">clear minds</span>
           </div>
-          <div className="hidden md:block"></div>
           <div className="flex items-center space-x-4">
             <button className="text-gray-500">
               <Search size={20} />
@@ -164,7 +187,7 @@ export default function SubscriptionPage() {
         </header>
 
         {/* Content */}
-        <div className="flex-1 p-6">
+        <div className="flex-1 p-4 sm:p-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-6">
               <h1 className="text-2xl md:text-3xl font-bold mb-2">
@@ -175,9 +198,9 @@ export default function SubscriptionPage() {
               </p>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col lg:flex-row gap-6">
               {/* Form Section */}
-              <div className="flex-1 bg-gray-50 rounded-lg p-6">
+              <div className="flex-1 bg-gray-50 rounded-lg p-4 sm:p-6">
                 <h2 className="font-medium text-lg mb-4">Billing Address</h2>
                 <div className="space-y-4">
                   <input
@@ -275,8 +298,8 @@ export default function SubscriptionPage() {
               </div>
 
               {/* Summary Section */}
-              <div className="md:w-80">
-                <div className="bg-gray-50 rounded-lg p-6">
+              <div className="lg:w-80">
+                <div className="bg-gray-50 rounded-lg p-4 sm:p-6">
                   <h2 className="font-medium text-lg mb-4">Summary</h2>
 
                   <div className="flex justify-between items-center mb-2">
@@ -314,7 +337,7 @@ export default function SubscriptionPage() {
                   <button
                     className={`w-full py-3 rounded-lg mb-4 ${
                       savedCards.length > 0
-                        ? "bg-gray-900 text-white"
+                        ? "bg-gray-900 text-white hover:bg-gray-800"
                         : "bg-gray-300 text-gray-500 cursor-not-allowed"
                     }`}
                     disabled={savedCards.length === 0}
@@ -339,7 +362,7 @@ export default function SubscriptionPage() {
 
       {/* New Card Modal */}
       {showCardModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4">New Card</h2>
 
@@ -372,7 +395,7 @@ export default function SubscriptionPage() {
                 />
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1">
                   <label className="block text-sm text-gray-600 mb-1">
                     Expiration Date
@@ -417,7 +440,7 @@ export default function SubscriptionPage() {
               </button>
               <button
                 onClick={addNewCard}
-                className="px-4 py-2 bg-gray-900 text-white rounded"
+                className="px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800"
                 disabled={
                   !newCardInfo.cardNumber ||
                   !newCardInfo.cardHolder ||
