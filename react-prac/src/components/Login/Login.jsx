@@ -35,7 +35,7 @@ export default function Login() {
           setError("User not found. Please sign up first.");
           break;
         case "auth/wrong-password":
-          setError("Incorrect password. Please try again.");
+          setError("Incorrect Password. please try again.");
           break;
         case "auth/invalid-email":
           setError("Invalid email format.");
