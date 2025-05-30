@@ -922,7 +922,7 @@ export default function ManagerTable() {
                 htmlFor="edit-subscriptionValidTill"
                 className="block text-sm font-medium text-gray-700"
               >
-                Subscription Valid Till
+                Subscription Valid Till{" "}
               </label>
               <input
                 type="date"
